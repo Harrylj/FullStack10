@@ -26,9 +26,9 @@
 
 <script>
 import Vue from 'vue';
-import { Field } from 'vant';
+import { Field,CellGroup } from 'vant';
 
-Vue.use(Field);
+Vue.use(Field,CellGroup);
 
     export default {
         data() {
