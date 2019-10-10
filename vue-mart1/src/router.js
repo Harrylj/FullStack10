@@ -14,14 +14,14 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/',
+      path: '/login',
       name: 'login',
       component: Login
     },
     {
       path: '/about',
       name: 'about',
-      meta: {auto:true},
+      meta: {auth:true},
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
@@ -31,7 +31,7 @@ const router = new Router({
 });
 
 router.beforeEach((to,from,next) => {
-  if (to.meta.atuto) {
+  if (to.meta.auth) {
     // 只要本地有token就认为登陆了
     const token = localStorage.getItem("token");
     if (token){
@@ -43,6 +43,9 @@ router.beforeEach((to,from,next) => {
         query: { redirect: to.path}
       })
     }
+  } else {
+    next();
   }
 })
+
 export default router
