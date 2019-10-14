@@ -13,15 +13,6 @@
             error-message="123"
         />
         <van-field
-            v-model="username"
-            required
-            label="用户名"
-            placeholder="请输入用户名"
-            right-icon="question-o"
-            @click-right-icon="$toast('question11111')"
-            error-message="123"
-        />
-        <van-field
             v-model="password"
             type="password"
             label="密码"
@@ -63,9 +54,9 @@ Vue.use(vant);
                 console.log(ret);
             },
             */
-            handleLogin(e) {
+            handleLogin() {
+                /*
                 // 登录请求
-                
                 this.$store.dispatch("login", this.model).then(success =>{
                     
                     if (success) {
@@ -74,15 +65,15 @@ Vue.use(vant);
                     }
                 }).catch(error => {
                     console.log('登录失败,why')
-                    /*
+                    
                     const toast = this.$createToast({
                         time:2000,
                         txt:'登录失败',
                         type:'error'
                     }).show();
-                    */
+                    
                 });
-                
+                */
             }
             /*
             handleLogin(e) {
@@ -106,5 +97,11 @@ Vue.use(vant);
 </script>
 
 <style lang="scss" scoped>
+$nav-color: #F90;
+h1 {
+  $width: 100%;
+  width: $width;
 
+  color: $nav-color;
+}
 </style>

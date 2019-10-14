@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
+import Study from './views/Study.vue'
 
 Vue.use(Router)
 const router = new Router({
@@ -19,6 +20,11 @@ const router = new Router({
       component: Login
     },
     {
+      path: '/study',
+      name: 'study',
+      component: Study
+    },
+    {
       path: '/about',
       name: 'about',
       meta: {auth:true},
@@ -29,8 +35,9 @@ const router = new Router({
     }
   ]
 });
-
+/*
 router.beforeEach((to,from,next) => {
+  
   if (to.meta.auth) {
     // 只要本地有token就认为登陆了
     const token = localStorage.getItem("token");
@@ -46,6 +53,7 @@ router.beforeEach((to,from,next) => {
   } else {
     next();
   }
+  
 })
-
+*/
 export default router

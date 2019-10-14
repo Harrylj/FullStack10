@@ -25,6 +25,7 @@ module.exports = {
                     } else {
                         res.status(401).json({code:0, message:'用户名或密码错误'})
                     }
+                    console.log(username,password)
                 })
             }
         }
