@@ -6,7 +6,7 @@ const baseConfig =  {
         router.back();
     }
 }
-export default baseConfig;
+export default {baseConfig};
 /*
 export default {
     install(Vue) {
