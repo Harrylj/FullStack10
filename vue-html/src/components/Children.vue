@@ -1,28 +1,28 @@
 <template>
   <div class="hello">
-    <h5>{{ msg }}</h5>
-    <p>
-    <h3>哥哥A1</h3>
-    <button @click="cyy">按钮</button> 点击按钮向弟弟A2传值
+    <h3>弟弟A2</h3>
+    <p>接受兄弟A1传值=-------第{{ccc}}次,向---{{ddd}}</p>
   </div>
 </template>
 
 <script>
 import Bus from "../api/Bus";   //注意引入
 export default {
-  name: 'HelloWorld',
+  name: 'Children',
   props: {
     msg: String
   },
-  data(){
+  data() {
     return {
-      a: 1 
-    }
+      ccc: "",
+      ddd: ""
+    };
   },
-  methods:{
-    cyy() {
-      Bus.$emit("zifu", this.a++, "子组件向兄弟组件传值");    //存 Bus.$emit
-    }
+  created(){
+    Bus.$on("zifu", (val_01, val_02) => {    //取  Bus.$on
+      this.ccc = val_01;
+      this.ddd = val_02;
+    });
   }
 }
 </script>
