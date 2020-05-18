@@ -1,0 +1,48 @@
+<template>
+    <div class="info">
+    <h1>欢迎您--{{UserId}}</h1>
+    
+
+    <van-button size="small" type="primary" @click="btnLeave" >退出登录</van-button>
+  </div>
+</template>
+
+<script>
+
+  export default {
+    name:'',
+    props:[''],
+    data () {
+      return {
+        UserId:localStorage.getItem('SDTZUSRRID')
+      };
+    },
+    created() {
+      console.log(localStorage.getItem('SDTZUSRRID'))
+    },
+    components: {},
+
+    computed: {},
+
+    beforeMount() {},
+
+    mounted() {},
+
+    methods: {
+      btnLeave(){
+        localStorage.removeItem('SDTZUSRRID')
+      },
+    },
+
+    watch: {}
+
+  }
+
+</script>
+<style lang='scss' scoped>
+.info{
+  h1{
+    font-size: 16px;
+  }
+}
+</style>

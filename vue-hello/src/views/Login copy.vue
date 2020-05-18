@@ -4,8 +4,6 @@
     <!-- 输入手机号，调起手机号键盘 -->
     <van-field v-model="tel" type="tel" placeholder="请输入手机号码" label="手机号" />
     <van-button size="small" type="primary" @click="btnYZM">发送验证码</van-button>
-    <h3>农业验证码:{{num_01}}</h3>
-    <h3>农资验证码:{{num_02}}</h3>
     <van-field v-model="sms" center clearable label="短信验证码" placeholder="请输入短信验证码" />
 
     <van-button size="small" type="primary" @click="btnDL" >登录</van-button>
@@ -14,15 +12,13 @@
 
 <script>
 // @ is an alias to /src
-// import router from '@/router'
+
 export default {
   name: "login",
   data() {
     return {
       tel: "",
-      sms: "",
-      num_01: "",
-      num_02: "",
+      sms: ""
     };
   },
   components: {},
@@ -38,19 +34,9 @@ export default {
           if (res) {
             console.log('999- ',res.data)
             this.sms = res.data.InfoMsg;
-            this.num_01 = res.data.InfoMsg;
-            // alert(res.data.InfoMsg);
+            alert(res.data.InfoMsg);
           }
         });
-      this.$base.newHttp('/Login/GetPhoneOrEmailCheckCode','get',{contact:this.tel,app_key:'SDMALLKEY',timestamp:Date.parse(new Date()) / 1000},res =>{
-                if(res.success){
-                    this.num_02 = res.data.data;
-                    console.log(res.data)
-                }else{
-                    this.$toast(res.data.msg,'农资')
-                }
-      })
-      
     },
     // 登录
     btnDL(){

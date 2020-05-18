@@ -1,12 +1,31 @@
 
 import router from './router'
-
-const baseConfig =  {
-    goback:function(){
-        router.back();
-    }
+import http from '@/api/http.js'
+// console.log(http)
+const baseConfig = {
+  goback:function () {
+    router.back();
+  },
+  
+  newHttp: (url, method, params, callback, errCallback) => {
+    http({ url: url, method: method, params: method == 'get' ? params : null, data: method == 'post' ? params : null, baseURL: 'https://mall.dc.sdtzcd.com/api/' }).then((res) => {
+        if (callback) {
+            callback(res)
+        }
+    }).catch(error => {
+        if (errCallback) {
+            errCallback(error)
+        }
+    })
+  },
+  /*
+  newHttp:function (){
+    //  alert(1)
+    //  console.log(http,router)
+  }
+  */
 }
-export default {baseConfig};
+export default baseConfig;
 /*
 export default {
     install(Vue) {
@@ -15,5 +34,5 @@ export default {
       };
     }
   }
-  
+
 */
