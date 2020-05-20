@@ -13,6 +13,17 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
-  }
+  },
+  methods: {
+    increment() {
+      //console.log(this.$store.state.count)
+      this.$store.commit('increment')
+      //console.log(this.$store.state.count)
+    }
+  },
+  created() {
+    this.increment();
+    console.log('22',this)
+  },
 }
 </script>

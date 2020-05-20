@@ -19,6 +19,7 @@
     },
     created() {
       console.log(localStorage.getItem('SDTZUSRRID'))
+      
     },
     components: {},
 
@@ -31,6 +32,8 @@
     methods: {
       btnLeave(){
         localStorage.removeItem('SDTZUSRRID')
+        this.$toast('退出成功')
+        this.$router.push('/login')
       },
     },
 
