@@ -2,7 +2,7 @@
     <div class="info">
     <h1>欢迎您--{{UserId}}</h1>
     <h2>1</h2>
-
+    <h2>2</h2>
     <van-button size="small" type="primary" @click="btnLeave" >退出登录</van-button>
   </div>
 </template>
