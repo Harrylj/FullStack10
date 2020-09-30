@@ -6,7 +6,13 @@ const baseConfig = {
   goback:function () {
     router.back();
   },
-  
+  // 通用输出
+  ljlog:function(a){
+    if(a){
+      // console.log('lj ',a)
+    }
+    
+  },
   newHttp: (url, method, params, callback, errCallback) => {
     http({ url: url, method: method, params: method == 'get' ? params : null, data: method == 'post' ? params : null, baseURL: 'https://mall.dc.sdtzcd.com/api/' }).then((res) => {
         if (callback) {

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import Try from '../views/Try.vue'
 import Info from '../views/Info.vue'
 
 Vue.use(VueRouter)
@@ -23,6 +24,11 @@ const routes = [
     component: Info
   },
   {
+    path: '/try',
+    name: 'Try',
+    component: Try
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -33,7 +39,14 @@ const routes = [
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 export default router

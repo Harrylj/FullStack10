@@ -10,6 +10,7 @@ import http from '@/api/http'
 
 Vue.prototype.$base = base // 全局注册base
 Vue.prototype.$http = http // 全局注册axios
+
 // Vue.prototype.$routers = router // 全局注册route
 console.log('111',Vue.prototype.$routers)
 Vue.use(Vant);

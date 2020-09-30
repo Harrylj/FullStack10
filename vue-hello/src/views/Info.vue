@@ -22,7 +22,7 @@
     },
     created() {
       console.log(localStorage.getItem('SDTZUSRRID'))
-      
+      this.$base.ljlog('info')
     },
     components: {},
 

@@ -25,6 +25,7 @@ export default {
   created() {
     this.increment();
     console.log('22',this)
+    this.$base.ljlog('home')
   },
   computed: mapState({
     // 箭头函数可使代码更简练
